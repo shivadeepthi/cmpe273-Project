@@ -1,0 +1,1069 @@
+INFO  [2014-03-19 21:42:17,134] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8081
+INFO  [2014-03-19 21:42:17,139] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-03-19 21:42:17,144] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-03-19 21:42:17,144] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/minu/Documents/workspace-sts-3.4.0.RELEASE/sms-voting-service/target/classes/}
+INFO  [2014-03-19 21:42:19,209] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/minu/Documents/workspace-sts-3.4.0.RELEASE/sms-voting-service/target/classes/}
+INFO  [2014-03-19 21:42:19,210] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+WARN  [2014-03-19 21:42:22,513] com.yammer.dropwizard.config.ServerFactory: 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS SERVICE HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW IF IT    !
+!    DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE LETTING     !
+!     YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH DEPENDENCY OF     !
+!     YOUR SERVICE WHICH FULLY (BUT LIGHTLY) TESTS YOUR SERVICE'S ABILITY TO   !
+!      USE THAT SERVICE. THINK OF IT AS A CONTINUOUS INTEGRATION TEST.         !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO  [2014-03-19 21:42:22,631] com.yammer.dropwizard.cli.ServerCommand: Starting sms-voting-service
+INFO  [2014-03-19 21:42:22,633] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-03-19 21:42:22,789] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-03-19 21:42:22,881] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    DELETE  /sms-voting/v1/admin/polls/{id} (edu.sjsu.cmpe.voting.resources.ModeratorPollResource)
+    GET     /sms-voting/v1/admin/polls (edu.sjsu.cmpe.voting.resources.ModeratorPollResource)
+    GET     /sms-voting/v1/admin/polls/{id} (edu.sjsu.cmpe.voting.resources.ModeratorPollResource)
+    POST    /sms-voting/v1/admin/polls (edu.sjsu.cmpe.voting.resources.ModeratorPollResource)
+    GET     /sms-voting/v1/user/polls (edu.sjsu.cmpe.voting.resources.UserPollResource)
+    GET     /sms-voting/v1/user/polls/{id} (edu.sjsu.cmpe.voting.resources.UserPollResource)
+    PUT     /sms-voting/v1/user/polls/{id} (edu.sjsu.cmpe.voting.resources.UserPollResource)
+
+INFO  [2014-03-19 21:42:22,882] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-03-19 21:42:23,261] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-03-19 21:42:23,267] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+INFO  [2014-03-19 21:43:40,198] com.sun.jersey.api.container.filter.LoggingFilter: 1 * Server in-bound request
+1 > POST http://localhost:8080/sms-voting/v1/admin/polls
+1 > Host: localhost:8080
+1 > Accept: */*
+1 > Postman-Token: 59d66f7b-73a7-425c-c91b-c2bbdded0818
+1 > Content-Length: 129
+1 > Content-Type: application/json
+1 > Accept-Language: en-US,en;q=0.8
+1 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+1 > Connection: keep-alive
+1 > Cache-Control: no-cache
+1 > Accept-Encoding: gzip,deflate,sdch
+1 > Origin: chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop
+1 > 
+{
+ "question" : "What is your favorite drink?",
+ "choices" : [
+         { "option" : "Water" },
+         {"option" : "Juice"} ]
+}
+
+INFO  [2014-03-19 21:43:40,350] com.sun.jersey.api.container.filter.LoggingFilter: 1 * Server out-bound response
+1 < 200
+1 < Content-Type: application/json
+1 < 
+{"polls":[{"rel":"view-all-polls","href":"/polls","method":"GET"},{"rel":"view-poll","href":"/polls/0","method":"GET"}]}
+
+INFO  [2014-03-19 21:44:12,555] com.sun.jersey.api.container.filter.LoggingFilter: 2 * Server in-bound request
+2 > GET http://localhost:8080/sms-voting/v1/user/polls
+2 > Host: localhost:8080
+2 > Accept: */*
+2 > Postman-Token: 8006456d-acff-58fa-3cf6-6c0561e47182
+2 > Content-Type: application/json
+2 > Accept-Language: en-US,en;q=0.8
+2 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+2 > Connection: keep-alive
+2 > Cache-Control: no-cache
+2 > Accept-Encoding: gzip,deflate,sdch
+2 > 
+
+INFO  [2014-03-19 21:44:12,558] com.sun.jersey.api.container.filter.LoggingFilter: 2 * Server out-bound response
+2 < 200
+2 < Content-Type: application/json
+2 < 
+{"Links":[{"rel":"view-poll","href":"/polls/0","method":"GET"}],"Questions":{"1":"What is your favorite drink?"}}
+
+INFO  [2014-03-19 21:44:49,896] com.sun.jersey.api.container.filter.LoggingFilter: 3 * Server in-bound request
+3 > GET http://localhost:8080/sms-voting/v1/user/polls/0
+3 > Host: localhost:8080
+3 > Accept: */*
+3 > Postman-Token: 77697ddc-d5a7-685e-d930-b8494f377839
+3 > Content-Type: application/json
+3 > Accept-Language: en-US,en;q=0.8
+3 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+3 > Connection: keep-alive
+3 > Cache-Control: no-cache
+3 > Accept-Encoding: gzip,deflate,sdch
+3 > 
+
+INFO  [2014-03-19 21:44:49,917] com.sun.jersey.api.container.filter.LoggingFilter: 3 * Server out-bound response
+3 < 200
+3 < Content-Type: application/json
+3 < 
+{"Poll":{"question":"What is your favorite drink?","choices":[{"option":"Water","count":0},{"option":"Juice","count":0}]}}
+
+INFO  [2014-03-19 21:45:15,196] com.sun.jersey.api.container.filter.LoggingFilter: 4 * Server in-bound request
+4 > PUT http://localhost:8080/sms-voting/v1/user/polls/0?option=Water
+4 > Host: localhost:8080
+4 > Accept: */*
+4 > Postman-Token: 418f96ed-fd14-9aa8-7838-4057a37c67ec
+4 > Content-Length: 0
+4 > Content-Type: application/json
+4 > Accept-Language: en-US,en;q=0.8
+4 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+4 > Connection: keep-alive
+4 > Cache-Control: no-cache
+4 > Accept-Encoding: gzip,deflate,sdch
+4 > Origin: chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop
+4 > 
+
+INFO  [2014-03-19 21:45:15,202] com.sun.jersey.api.container.filter.LoggingFilter: 4 * Server out-bound response
+4 < 200
+4 < Content-Type: application/json
+4 < 
+{"Poll":{"question":"What is your favorite drink?","choices":[{"option":"Water","count":1},{"option":"Juice","count":0}]}}
+
+INFO  [2014-03-19 21:45:34,726] com.sun.jersey.api.container.filter.LoggingFilter: 5 * Server in-bound request
+5 > DELETE http://localhost:8080/sms-voting/v1/admin/polls/0
+5 > Host: localhost:8080
+5 > Accept: */*
+5 > Postman-Token: 153cbe07-f792-814d-9e34-81c1dd3de34a
+5 > Content-Length: 115
+5 > Content-Type: application/json
+5 > Accept-Language: en-US,en;q=0.8
+5 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+5 > Connection: keep-alive
+5 > Cache-Control: no-cache
+5 > Accept-Encoding: gzip,deflate,sdch
+5 > Origin: chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop
+5 > 
+{
+ "question" : "favorite drink",
+ "choices" : [
+         { "option" : "Water" },
+         {"option" : "Juice"} ]
+}
+
+INFO  [2014-03-19 21:45:34,731] com.sun.jersey.api.container.filter.LoggingFilter: 5 * Server out-bound response
+5 < 200
+5 < Content-Type: application/json
+5 < 
+{"polls":[{"rel":"create-poll","href":"/polls","method":"POST"}]}
+
+INFO  [2014-03-19 21:57:23,104] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8081
+INFO  [2014-03-19 21:57:23,105] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-03-19 21:57:23,106] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-03-19 21:57:23,106] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/minu/Documents/workspace-sts-3.4.0.RELEASE/sms-voting-service/target/classes/}
+INFO  [2014-03-19 21:57:25,161] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/minu/Documents/workspace-sts-3.4.0.RELEASE/sms-voting-service/target/classes/}
+INFO  [2014-03-19 21:57:25,161] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+WARN  [2014-03-19 21:57:27,491] com.yammer.dropwizard.config.ServerFactory: 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS SERVICE HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW IF IT    !
+!    DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE LETTING     !
+!     YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH DEPENDENCY OF     !
+!     YOUR SERVICE WHICH FULLY (BUT LIGHTLY) TESTS YOUR SERVICE'S ABILITY TO   !
+!      USE THAT SERVICE. THINK OF IT AS A CONTINUOUS INTEGRATION TEST.         !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO  [2014-03-19 21:57:27,578] com.yammer.dropwizard.cli.ServerCommand: Starting sms-voting-service
+INFO  [2014-03-19 21:57:27,579] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-03-19 21:57:27,700] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-03-19 21:57:27,772] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    DELETE  /sms-voting/v1/admin/polls/{id} (edu.sjsu.cmpe.voting.resources.ModeratorPollResource)
+    GET     /sms-voting/v1/admin/polls (edu.sjsu.cmpe.voting.resources.ModeratorPollResource)
+    GET     /sms-voting/v1/admin/polls/{id} (edu.sjsu.cmpe.voting.resources.ModeratorPollResource)
+    POST    /sms-voting/v1/admin/polls (edu.sjsu.cmpe.voting.resources.ModeratorPollResource)
+    GET     /sms-voting/v1/user/polls (edu.sjsu.cmpe.voting.resources.UserPollResource)
+    GET     /sms-voting/v1/user/polls/{id} (edu.sjsu.cmpe.voting.resources.UserPollResource)
+    PUT     /sms-voting/v1/user/polls/{id} (edu.sjsu.cmpe.voting.resources.UserPollResource)
+
+INFO  [2014-03-19 21:57:27,772] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-03-19 21:57:28,172] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-03-19 21:57:28,178] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+INFO  [2014-03-19 21:57:33,940] com.sun.jersey.api.container.filter.LoggingFilter: 1 * Server in-bound request
+1 > DELETE http://localhost:8080/sms-voting/v1/admin/polls/0
+1 > Host: localhost:8080
+1 > Accept: */*
+1 > Postman-Token: abacd17b-ac78-dbe0-9ff6-13842d9e204f
+1 > Content-Length: 115
+1 > Content-Type: application/json
+1 > Accept-Language: en-US,en;q=0.8
+1 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+1 > Connection: keep-alive
+1 > Cache-Control: no-cache
+1 > Accept-Encoding: gzip,deflate,sdch
+1 > Origin: chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop
+1 > 
+{
+ "question" : "favorite drink",
+ "choices" : [
+         { "option" : "Water" },
+         {"option" : "Juice"} ]
+}
+
+INFO  [2014-03-19 21:57:34,015] com.sun.jersey.api.container.filter.LoggingFilter: 1 * Server out-bound response
+1 < 200
+1 < Content-Type: application/json
+1 < 
+{"polls":[{"rel":"create-poll","href":"/polls","method":"POST"}]}
+
+INFO  [2014-03-19 21:57:39,061] com.sun.jersey.api.container.filter.LoggingFilter: 2 * Server in-bound request
+2 > GET http://localhost:8080/sms-voting/v1/user/polls
+2 > Host: localhost:8080
+2 > Accept: */*
+2 > Postman-Token: a7670bb3-4280-b5c3-066d-dcfb59e5d062
+2 > Content-Type: application/json
+2 > Accept-Language: en-US,en;q=0.8
+2 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+2 > Connection: keep-alive
+2 > Cache-Control: no-cache
+2 > Accept-Encoding: gzip,deflate,sdch
+2 > 
+
+INFO  [2014-03-19 21:57:39,070] com.sun.jersey.api.container.filter.LoggingFilter: 2 * Server out-bound response
+2 < 200
+2 < Content-Type: application/json
+2 < 
+{"Links":[],"Questions":{}}
+
+INFO  [2014-03-19 21:57:53,751] com.sun.jersey.api.container.filter.LoggingFilter: 3 * Server in-bound request
+3 > GET http://localhost:8080/sms-voting/v1/user/polls
+3 > Host: localhost:8080
+3 > Accept: */*
+3 > Postman-Token: 41c05c79-ab2e-b836-f630-cb8c38b08371
+3 > Content-Type: application/json
+3 > Accept-Language: en-US,en;q=0.8
+3 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+3 > Connection: keep-alive
+3 > Cache-Control: no-cache
+3 > Accept-Encoding: gzip,deflate,sdch
+3 > 
+
+INFO  [2014-03-19 21:57:53,752] com.sun.jersey.api.container.filter.LoggingFilter: 3 * Server out-bound response
+3 < 200
+3 < Content-Type: application/json
+3 < 
+{"Links":[],"Questions":{}}
+
+INFO  [2014-03-19 21:58:04,585] com.sun.jersey.api.container.filter.LoggingFilter: 4 * Server in-bound request
+4 > POST http://localhost:8080/sms-voting/v1/admin/polls
+4 > Host: localhost:8080
+4 > Accept: */*
+4 > Postman-Token: 4550b9b6-eb49-9970-750a-49927ef4daf7
+4 > Content-Length: 129
+4 > Content-Type: application/json
+4 > Accept-Language: en-US,en;q=0.8
+4 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+4 > Connection: keep-alive
+4 > Cache-Control: no-cache
+4 > Accept-Encoding: gzip,deflate,sdch
+4 > Origin: chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop
+4 > 
+{
+ "question" : "What is your favorite drink?",
+ "choices" : [
+         { "option" : "Water" },
+         {"option" : "Juice"} ]
+}
+
+INFO  [2014-03-19 21:58:04,647] com.sun.jersey.api.container.filter.LoggingFilter: 4 * Server out-bound response
+4 < 200
+4 < Content-Type: application/json
+4 < 
+{"polls":[{"rel":"view-all-polls","href":"/polls","method":"GET"},{"rel":"view-poll","href":"/polls/1000","method":"GET"}]}
+
+INFO  [2014-03-19 21:58:16,761] com.sun.jersey.api.container.filter.LoggingFilter: 5 * Server in-bound request
+5 > GET http://localhost:8080/sms-voting/v1/admin/polls/1000
+5 > Host: localhost:8080
+5 > Accept: */*
+5 > Postman-Token: b00eaf01-c777-c5e2-e03f-a80bf7b11feb
+5 > Content-Type: application/json
+5 > Accept-Language: en-US,en;q=0.8
+5 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+5 > Connection: keep-alive
+5 > Cache-Control: no-cache
+5 > Accept-Encoding: gzip,deflate,sdch
+5 > 
+
+INFO  [2014-03-19 21:58:16,781] com.sun.jersey.api.container.filter.LoggingFilter: 5 * Server out-bound response
+5 < 200
+5 < Content-Type: application/json
+5 < 
+{"Poll":{"id":1000,"question":"What is your favorite drink?","choices":[{"option":"Water","count":0},{"option":"Juice","count":0}]}}
+
+INFO  [2014-03-19 21:58:32,326] com.sun.jersey.api.container.filter.LoggingFilter: 6 * Server in-bound request
+6 > GET http://localhost:8080/sms-voting/v1/user/polls/1000
+6 > Host: localhost:8080
+6 > Accept: */*
+6 > Postman-Token: 92f894cc-1e46-0c03-6a94-716d5304b024
+6 > Content-Type: application/json
+6 > Accept-Language: en-US,en;q=0.8
+6 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+6 > Connection: keep-alive
+6 > Cache-Control: no-cache
+6 > Accept-Encoding: gzip,deflate,sdch
+6 > 
+
+INFO  [2014-03-19 21:58:32,326] com.sun.jersey.api.container.filter.LoggingFilter: 6 * Server out-bound response
+6 < 200
+6 < Content-Type: application/json
+6 < 
+{"Poll":{"id":1000,"question":"What is your favorite drink?","choices":[{"option":"Water","count":0},{"option":"Juice","count":0}]}}
+
+INFO  [2014-03-19 21:58:41,771] com.sun.jersey.api.container.filter.LoggingFilter: 7 * Server in-bound request
+7 > GET http://localhost:8080/sms-voting/v1/user/polls
+7 > Host: localhost:8080
+7 > Accept: */*
+7 > Postman-Token: 765f694c-1acd-2009-a9e2-15904aee6c31
+7 > Content-Type: application/json
+7 > Accept-Language: en-US,en;q=0.8
+7 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+7 > Connection: keep-alive
+7 > Cache-Control: no-cache
+7 > Accept-Encoding: gzip,deflate,sdch
+7 > 
+
+INFO  [2014-03-19 21:58:41,772] com.sun.jersey.api.container.filter.LoggingFilter: 7 * Server out-bound response
+7 < 200
+7 < Content-Type: application/json
+7 < 
+{"Links":[{"rel":"view-poll","href":"/polls/1000","method":"GET"}],"Questions":{"1001":"What is your favorite drink?"}}
+
+INFO  [2014-03-19 22:00:00,510] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8081
+INFO  [2014-03-19 22:00:00,511] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-03-19 22:00:00,514] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-03-19 22:00:00,514] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/minu/Documents/workspace-sts-3.4.0.RELEASE/sms-voting-service/target/classes/}
+INFO  [2014-03-19 22:00:02,567] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/minu/Documents/workspace-sts-3.4.0.RELEASE/sms-voting-service/target/classes/}
+INFO  [2014-03-19 22:00:02,567] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+WARN  [2014-03-19 22:00:04,829] com.yammer.dropwizard.config.ServerFactory: 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS SERVICE HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW IF IT    !
+!    DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE LETTING     !
+!     YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH DEPENDENCY OF     !
+!     YOUR SERVICE WHICH FULLY (BUT LIGHTLY) TESTS YOUR SERVICE'S ABILITY TO   !
+!      USE THAT SERVICE. THINK OF IT AS A CONTINUOUS INTEGRATION TEST.         !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO  [2014-03-19 22:00:04,923] com.yammer.dropwizard.cli.ServerCommand: Starting sms-voting-service
+INFO  [2014-03-19 22:00:04,925] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-03-19 22:00:05,038] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-03-19 22:00:05,115] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    DELETE  /sms-voting/v1/admin/polls/{id} (edu.sjsu.cmpe.voting.resources.ModeratorPollResource)
+    GET     /sms-voting/v1/admin/polls (edu.sjsu.cmpe.voting.resources.ModeratorPollResource)
+    GET     /sms-voting/v1/admin/polls/{id} (edu.sjsu.cmpe.voting.resources.ModeratorPollResource)
+    POST    /sms-voting/v1/admin/polls (edu.sjsu.cmpe.voting.resources.ModeratorPollResource)
+    GET     /sms-voting/v1/user/polls (edu.sjsu.cmpe.voting.resources.UserPollResource)
+    GET     /sms-voting/v1/user/polls/{id} (edu.sjsu.cmpe.voting.resources.UserPollResource)
+    PUT     /sms-voting/v1/user/polls/{id} (edu.sjsu.cmpe.voting.resources.UserPollResource)
+
+INFO  [2014-03-19 22:00:05,115] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-03-19 22:00:05,489] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-03-19 22:00:05,494] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+INFO  [2014-03-19 22:00:12,080] com.sun.jersey.api.container.filter.LoggingFilter: 1 * Server in-bound request
+1 > POST http://localhost:8080/sms-voting/v1/admin/polls
+1 > Host: localhost:8080
+1 > Accept: */*
+1 > Postman-Token: 5b0d5a26-cbc9-0f4b-d13d-3760d5b7cac7
+1 > Content-Length: 129
+1 > Content-Type: application/json
+1 > Accept-Language: en-US,en;q=0.8
+1 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+1 > Connection: keep-alive
+1 > Cache-Control: no-cache
+1 > Accept-Encoding: gzip,deflate,sdch
+1 > Origin: chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop
+1 > 
+{
+ "question" : "What is your favorite drink?",
+ "choices" : [
+         { "option" : "Water" },
+         {"option" : "Juice"} ]
+}
+
+INFO  [2014-03-19 22:00:12,193] com.sun.jersey.api.container.filter.LoggingFilter: 1 * Server out-bound response
+1 < 200
+1 < Content-Type: application/json
+1 < 
+{"polls":[{"rel":"view-all-polls","href":"/polls","method":"GET"},{"rel":"view-poll","href":"/polls/1000","method":"GET"}]}
+
+INFO  [2014-03-19 22:00:22,916] com.sun.jersey.api.container.filter.LoggingFilter: 2 * Server in-bound request
+2 > GET http://localhost:8080/sms-voting/v1/admin/polls
+2 > Host: localhost:8080
+2 > Accept: */*
+2 > Postman-Token: 8f8546eb-340f-f675-e3d8-818fffb68215
+2 > Content-Type: application/json
+2 > Accept-Language: en-US,en;q=0.8
+2 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+2 > Connection: keep-alive
+2 > Cache-Control: no-cache
+2 > Accept-Encoding: gzip,deflate,sdch
+2 > 
+
+INFO  [2014-03-19 22:00:22,919] com.sun.jersey.api.container.filter.LoggingFilter: 2 * Server out-bound response
+2 < 200
+2 < Content-Type: application/json
+2 < 
+{"Links":[{"rel":"view-poll","href":"/polls/1000","method":"GET"}],"Questions":{"1":"What is your favorite drink?"}}
+
+INFO  [2014-03-19 22:00:31,261] com.sun.jersey.api.container.filter.LoggingFilter: 3 * Server in-bound request
+3 > GET http://localhost:8080/sms-voting/v1/admin/polls/1000
+3 > Host: localhost:8080
+3 > Accept: */*
+3 > Postman-Token: 765e1000-3101-dcd7-5c20-05b3e7830f39
+3 > Content-Type: application/json
+3 > Accept-Language: en-US,en;q=0.8
+3 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+3 > Connection: keep-alive
+3 > Cache-Control: no-cache
+3 > Accept-Encoding: gzip,deflate,sdch
+3 > 
+
+INFO  [2014-03-19 22:00:31,279] com.sun.jersey.api.container.filter.LoggingFilter: 3 * Server out-bound response
+3 < 200
+3 < Content-Type: application/json
+3 < 
+{"Poll":{"id":1000,"question":"What is your favorite drink?","choices":[{"option":"Water","count":0},{"option":"Juice","count":0}]}}
+
+INFO  [2014-03-19 22:00:50,457] com.sun.jersey.api.container.filter.LoggingFilter: 4 * Server in-bound request
+4 > GET http://localhost:8080/sms-voting/v1/user/polls
+4 > Host: localhost:8080
+4 > Accept: */*
+4 > Postman-Token: ed55926a-2256-0569-355c-bd5ee17e978a
+4 > Content-Type: application/json
+4 > Accept-Language: en-US,en;q=0.8
+4 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+4 > Connection: keep-alive
+4 > Cache-Control: no-cache
+4 > Accept-Encoding: gzip,deflate,sdch
+4 > 
+
+INFO  [2014-03-19 22:00:50,458] com.sun.jersey.api.container.filter.LoggingFilter: 4 * Server out-bound response
+4 < 200
+4 < Content-Type: application/json
+4 < 
+{"Links":[{"rel":"view-poll","href":"/polls/1000","method":"GET"}],"Questions":{"1001":"What is your favorite drink?"}}
+
+INFO  [2014-03-19 22:02:13,676] com.sun.jersey.api.container.filter.LoggingFilter: 5 * Server in-bound request
+5 > GET http://localhost:8080/sms-voting/v1/user/polls/1000
+5 > Host: localhost:8080
+5 > Accept: */*
+5 > Postman-Token: b0b405c6-4b4b-5607-9ea5-f781bb1cee9e
+5 > Content-Type: application/json
+5 > Accept-Language: en-US,en;q=0.8
+5 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+5 > Connection: keep-alive
+5 > Cache-Control: no-cache
+5 > Accept-Encoding: gzip,deflate,sdch
+5 > 
+
+INFO  [2014-03-19 22:02:13,677] com.sun.jersey.api.container.filter.LoggingFilter: 5 * Server out-bound response
+5 < 200
+5 < Content-Type: application/json
+5 < 
+{"Poll":{"id":1000,"question":"What is your favorite drink?","choices":[{"option":"Water","count":0},{"option":"Juice","count":0}]}}
+
+INFO  [2014-03-19 22:02:56,216] com.sun.jersey.api.container.filter.LoggingFilter: 6 * Server in-bound request
+6 > GET http://localhost:8080/sms-voting/v1/user/polls/1000?option=Water
+6 > Host: localhost:8080
+6 > Accept: */*
+6 > Postman-Token: f5b01f6d-67ce-7fd1-8222-e08519adf427
+6 > Content-Type: application/json
+6 > Accept-Language: en-US,en;q=0.8
+6 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+6 > Connection: keep-alive
+6 > Cache-Control: no-cache
+6 > Accept-Encoding: gzip,deflate,sdch
+6 > 
+
+INFO  [2014-03-19 22:02:56,217] com.sun.jersey.api.container.filter.LoggingFilter: 6 * Server out-bound response
+6 < 200
+6 < Content-Type: application/json
+6 < 
+{"Poll":{"id":1000,"question":"What is your favorite drink?","choices":[{"option":"Water","count":0},{"option":"Juice","count":0}]}}
+
+INFO  [2014-03-19 22:03:14,712] com.sun.jersey.api.container.filter.LoggingFilter: 7 * Server in-bound request
+7 > PUT http://localhost:8080/sms-voting/v1/user/polls/1000?option=Water
+7 > Host: localhost:8080
+7 > Accept: */*
+7 > Postman-Token: 227e3101-e1ff-6848-ba4b-807ed5afa422
+7 > Content-Length: 0
+7 > Content-Type: application/json
+7 > Accept-Language: en-US,en;q=0.8
+7 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+7 > Connection: keep-alive
+7 > Cache-Control: no-cache
+7 > Accept-Encoding: gzip,deflate,sdch
+7 > Origin: chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop
+7 > 
+
+INFO  [2014-03-19 22:03:14,715] com.sun.jersey.api.container.filter.LoggingFilter: 7 * Server out-bound response
+7 < 200
+7 < Content-Type: application/json
+7 < 
+{"Poll":{"id":1000,"question":"What is your favorite drink?","choices":[{"option":"Water","count":1},{"option":"Juice","count":0}]}}
+
+INFO  [2014-03-19 22:15:35,649] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8081
+INFO  [2014-03-19 22:15:35,650] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-03-19 22:15:35,651] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-03-19 22:15:35,651] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/minu/Documents/workspace-sts-3.4.0.RELEASE/sms-voting-service/target/classes/}
+INFO  [2014-03-19 22:15:37,704] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/minu/Documents/workspace-sts-3.4.0.RELEASE/sms-voting-service/target/classes/}
+INFO  [2014-03-19 22:15:37,704] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+WARN  [2014-03-19 22:15:40,048] com.yammer.dropwizard.config.ServerFactory: 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS SERVICE HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW IF IT    !
+!    DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE LETTING     !
+!     YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH DEPENDENCY OF     !
+!     YOUR SERVICE WHICH FULLY (BUT LIGHTLY) TESTS YOUR SERVICE'S ABILITY TO   !
+!      USE THAT SERVICE. THINK OF IT AS A CONTINUOUS INTEGRATION TEST.         !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO  [2014-03-19 22:15:40,143] com.yammer.dropwizard.cli.ServerCommand: Starting sms-voting-service
+INFO  [2014-03-19 22:15:40,145] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-03-19 22:15:40,260] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-03-19 22:15:40,328] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    DELETE  /sms-voting/v1/admin/polls/{id} (edu.sjsu.cmpe.voting.resources.ModeratorPollResource)
+    GET     /sms-voting/v1/admin/polls (edu.sjsu.cmpe.voting.resources.ModeratorPollResource)
+    GET     /sms-voting/v1/admin/polls/{id} (edu.sjsu.cmpe.voting.resources.ModeratorPollResource)
+    POST    /sms-voting/v1/admin/polls (edu.sjsu.cmpe.voting.resources.ModeratorPollResource)
+    GET     /sms-voting/v1/user/polls (edu.sjsu.cmpe.voting.resources.UserPollResource)
+    GET     /sms-voting/v1/user/polls/{id} (edu.sjsu.cmpe.voting.resources.UserPollResource)
+    PUT     /sms-voting/v1/user/polls/{id} (edu.sjsu.cmpe.voting.resources.UserPollResource)
+
+INFO  [2014-03-19 22:15:40,328] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-03-19 22:15:40,675] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-03-19 22:15:40,680] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+INFO  [2014-03-19 22:15:50,554] com.sun.jersey.api.container.filter.LoggingFilter: 1 * Server in-bound request
+1 > POST http://localhost:8080/sms-voting/v1/admin/polls
+1 > Host: localhost:8080
+1 > Accept: */*
+1 > Postman-Token: a0e710f3-fdf0-cca9-b1d6-f5269efb1e75
+1 > Content-Length: 129
+1 > Content-Type: application/json
+1 > Accept-Language: en-US,en;q=0.8
+1 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+1 > Connection: keep-alive
+1 > Cache-Control: no-cache
+1 > Accept-Encoding: gzip,deflate,sdch
+1 > Origin: chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop
+1 > 
+{
+ "question" : "What is your favorite drink?",
+ "choices" : [
+         { "option" : "Water" },
+         {"option" : "Juice"} ]
+}
+
+INFO  [2014-03-19 22:15:50,703] com.sun.jersey.api.container.filter.LoggingFilter: 1 * Server out-bound response
+1 < 200
+1 < Content-Type: application/json
+1 < 
+{"polls":[{"rel":"view-all-polls","href":"/polls","method":"GET"},{"rel":"view-poll","href":"/polls/1000","method":"GET"}]}
+
+INFO  [2014-03-19 22:15:59,410] com.sun.jersey.api.container.filter.LoggingFilter: 2 * Server in-bound request
+2 > GET http://localhost:8080/sms-voting/v1/admin/polls
+2 > Host: localhost:8080
+2 > Accept: */*
+2 > Postman-Token: f521284e-2be7-bec4-b081-dd11aba798ea
+2 > Content-Type: application/json
+2 > Accept-Language: en-US,en;q=0.8
+2 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+2 > Connection: keep-alive
+2 > Cache-Control: no-cache
+2 > Accept-Encoding: gzip,deflate,sdch
+2 > 
+
+INFO  [2014-03-19 22:15:59,413] com.sun.jersey.api.container.filter.LoggingFilter: 2 * Server out-bound response
+2 < 200
+2 < Content-Type: application/json
+2 < 
+{"Links":[{"rel":"view-poll","href":"/polls/1000","method":"GET"}],"Questions":{"1":"What is your favorite drink?"}}
+
+INFO  [2014-03-19 22:16:07,484] com.sun.jersey.api.container.filter.LoggingFilter: 3 * Server in-bound request
+3 > GET http://localhost:8080/sms-voting/v1/user/polls/1000
+3 > Host: localhost:8080
+3 > Accept: */*
+3 > Postman-Token: 9fb3667a-d6c1-02b3-e6b4-56f4dec7b2a5
+3 > Content-Type: application/json
+3 > Accept-Language: en-US,en;q=0.8
+3 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+3 > Connection: keep-alive
+3 > Cache-Control: no-cache
+3 > Accept-Encoding: gzip,deflate,sdch
+3 > 
+
+INFO  [2014-03-19 22:16:07,510] com.sun.jersey.api.container.filter.LoggingFilter: 3 * Server out-bound response
+3 < 200
+3 < Content-Type: application/json
+3 < 
+{"Poll":{"id":1000,"question":"What is your favorite drink?","choices":[{"option":"Juice","count":0},{"option":"Water","count":0}]}}
+
+INFO  [2014-03-19 22:16:12,789] com.sun.jersey.api.container.filter.LoggingFilter: 4 * Server in-bound request
+4 > PUT http://localhost:8080/sms-voting/v1/user/polls/1000?option=Water
+4 > Host: localhost:8080
+4 > Accept: */*
+4 > Postman-Token: b86514b5-3eff-9d65-b7d5-e697737848c3
+4 > Content-Length: 0
+4 > Content-Type: application/json
+4 > Accept-Language: en-US,en;q=0.8
+4 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+4 > Connection: keep-alive
+4 > Cache-Control: no-cache
+4 > Accept-Encoding: gzip,deflate,sdch
+4 > Origin: chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop
+4 > 
+
+INFO  [2014-03-19 22:16:12,792] com.sun.jersey.api.container.filter.LoggingFilter: 4 * Server out-bound response
+4 < 200
+4 < Content-Type: application/json
+4 < 
+{"Poll":{"id":1000,"question":"What is your favorite drink?","choices":[{"option":"Juice","count":0},{"option":"Water","count":1}]}}
+
+INFO  [2014-03-19 22:17:03,474] com.sun.jersey.api.container.filter.LoggingFilter: 5 * Server in-bound request
+5 > POST http://localhost:8080/sms-voting/v1/admin/polls
+5 > Host: localhost:8080
+5 > Accept: */*
+5 > Postman-Token: 505f0ce9-99b2-9e0b-1a05-6af6c87713e9
+5 > Content-Length: 151
+5 > Content-Type: application/json
+5 > Accept-Language: en-US,en;q=0.8
+5 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+5 > Connection: keep-alive
+5 > Cache-Control: no-cache
+5 > Accept-Encoding: gzip,deflate,sdch
+5 > Origin: chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop
+5 > 
+{
+ "question" : "What is your favorite color?",
+ "choices" : [
+         { "option" : "Red" },
+         {"option" : "White"},
+   {"option" : "Red"}	 ]
+}
+
+INFO  [2014-03-19 22:17:03,476] com.sun.jersey.api.container.filter.LoggingFilter: 5 * Server out-bound response
+5 < 200
+5 < Content-Type: application/json
+5 < 
+{"polls":[{"rel":"view-all-polls","href":"/polls","method":"GET"},{"rel":"view-poll","href":"/polls/1001","method":"GET"}]}
+
+INFO  [2014-03-19 22:17:27,559] com.sun.jersey.api.container.filter.LoggingFilter: 6 * Server in-bound request
+6 > GET http://localhost:8080/sms-voting/v1/admin/polls/1001
+6 > Host: localhost:8080
+6 > Accept: */*
+6 > Postman-Token: e8f97b2d-6802-191a-d5da-8499e899b5f1
+6 > Content-Type: application/json
+6 > Accept-Language: en-US,en;q=0.8
+6 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+6 > Connection: keep-alive
+6 > Cache-Control: no-cache
+6 > Accept-Encoding: gzip,deflate,sdch
+6 > 
+
+INFO  [2014-03-19 22:17:27,560] com.sun.jersey.api.container.filter.LoggingFilter: 6 * Server out-bound response
+6 < 200
+6 < Content-Type: application/json
+6 < 
+{"Poll":{"id":1001,"question":"What is your favorite color?","choices":[{"option":"Red","count":0},{"option":"Red","count":0},{"option":"White","count":0}]}}
+
+INFO  [2014-03-19 22:40:41,792] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8081
+INFO  [2014-03-19 22:40:41,794] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-03-19 22:40:41,794] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-03-19 22:40:41,794] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/minu/Documents/workspace-sts-3.4.0.RELEASE/sms-voting-service/target/classes/}
+INFO  [2014-03-19 22:40:43,847] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/minu/Documents/workspace-sts-3.4.0.RELEASE/sms-voting-service/target/classes/}
+INFO  [2014-03-19 22:40:43,848] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+WARN  [2014-03-19 22:40:53,138] com.yammer.dropwizard.config.ServerFactory: 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS SERVICE HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW IF IT    !
+!    DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE LETTING     !
+!     YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH DEPENDENCY OF     !
+!     YOUR SERVICE WHICH FULLY (BUT LIGHTLY) TESTS YOUR SERVICE'S ABILITY TO   !
+!      USE THAT SERVICE. THINK OF IT AS A CONTINUOUS INTEGRATION TEST.         !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO  [2014-03-19 22:40:53,225] com.yammer.dropwizard.cli.ServerCommand: Starting sms-voting-service
+INFO  [2014-03-19 22:40:53,227] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-03-19 22:40:53,345] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-03-19 22:40:53,417] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    DELETE  /sms-voting/v1/admin/polls/{id} (edu.sjsu.cmpe.voting.resources.ModeratorPollResource)
+    GET     /sms-voting/v1/admin/polls (edu.sjsu.cmpe.voting.resources.ModeratorPollResource)
+    GET     /sms-voting/v1/admin/polls/{id} (edu.sjsu.cmpe.voting.resources.ModeratorPollResource)
+    POST    /sms-voting/v1/admin/polls (edu.sjsu.cmpe.voting.resources.ModeratorPollResource)
+    GET     /sms-voting/v1/user/polls (edu.sjsu.cmpe.voting.resources.UserPollResource)
+    GET     /sms-voting/v1/user/polls/{id} (edu.sjsu.cmpe.voting.resources.UserPollResource)
+    PUT     /sms-voting/v1/user/polls/{id} (edu.sjsu.cmpe.voting.resources.UserPollResource)
+
+INFO  [2014-03-19 22:40:53,418] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-03-19 22:40:53,775] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-03-19 22:40:53,780] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+INFO  [2014-03-19 22:44:44,608] com.sun.jersey.api.container.filter.LoggingFilter: 1 * Server in-bound request
+1 > POST http://localhost:8080/sms-voting/v1/admin/polls
+1 > Host: localhost:8080
+1 > Accept: */*
+1 > Postman-Token: 861e6156-e0fb-f73e-1f38-a12830dcb44b
+1 > Content-Length: 129
+1 > Content-Type: application/json
+1 > Accept-Language: en-US,en;q=0.8
+1 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+1 > Connection: keep-alive
+1 > Cache-Control: no-cache
+1 > Accept-Encoding: gzip,deflate,sdch
+1 > Origin: chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop
+1 > 
+{
+ "question" : "What is your favorite drink?",
+ "choices" : [
+         { "option" : "Water" },
+         {"option" : "Juice"} ]
+}
+
+INFO  [2014-03-19 22:44:44,725] com.sun.jersey.api.container.filter.LoggingFilter: 1 * Server out-bound response
+1 < 200
+1 < Content-Type: application/json
+1 < 
+{"polls":[{"rel":"view-all-polls","href":"/polls","method":"GET"},{"rel":"view-poll","href":"/polls/1000","method":"GET"}]}
+
+INFO  [2014-03-19 22:45:05,629] com.sun.jersey.api.container.filter.LoggingFilter: 2 * Server in-bound request
+2 > POST http://localhost:8080/sms-voting/v1/admin/polls
+2 > Host: localhost:8080
+2 > Accept: */*
+2 > Postman-Token: 70357316-d49f-c955-177d-c980e00c70ba
+2 > Content-Length: 127
+2 > Content-Type: application/json
+2 > Accept-Language: en-US,en;q=0.8
+2 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+2 > Connection: keep-alive
+2 > Cache-Control: no-cache
+2 > Accept-Encoding: gzip,deflate,sdch
+2 > Origin: chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop
+2 > 
+{
+ "question" : "What is your favorite color?",
+ "choices" : [
+         { "option" : "Red" },
+         {"option" : "Green"} ]
+}
+
+INFO  [2014-03-19 22:45:05,631] com.sun.jersey.api.container.filter.LoggingFilter: 2 * Server out-bound response
+2 < 200
+2 < Content-Type: application/json
+2 < 
+{"polls":[{"rel":"view-all-polls","href":"/polls","method":"GET"},{"rel":"view-poll","href":"/polls/1001","method":"GET"}]}
+
+INFO  [2014-03-19 22:45:18,725] com.sun.jersey.api.container.filter.LoggingFilter: 3 * Server in-bound request
+3 > GET http://localhost:8080/sms-voting/v1/admin/polls
+3 > Host: localhost:8080
+3 > Accept: */*
+3 > Postman-Token: 00484244-f7d8-e351-ddcb-964c44a360ab
+3 > Content-Type: application/json
+3 > Accept-Language: en-US,en;q=0.8
+3 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+3 > Connection: keep-alive
+3 > Cache-Control: no-cache
+3 > Accept-Encoding: gzip,deflate,sdch
+3 > 
+
+INFO  [2014-03-19 22:45:18,728] com.sun.jersey.api.container.filter.LoggingFilter: 3 * Server out-bound response
+3 < 200
+3 < Content-Type: application/json
+3 < 
+{"Links":[{"rel":"view-poll","href":"/polls/1001","method":"GET"},{"rel":"view-poll","href":"/polls/1000","method":"GET"}],"Questions":{"1":"What is your favorite drink?","2":"What is your favorite color?"}}
+
+INFO  [2014-03-19 22:45:35,987] com.sun.jersey.api.container.filter.LoggingFilter: 4 * Server in-bound request
+4 > GET http://localhost:8080/sms-voting/v1/user/polls
+4 > Host: localhost:8080
+4 > Accept: */*
+4 > Postman-Token: 9680873e-9a74-d7a9-c119-559a5b313c6f
+4 > Content-Type: application/json
+4 > Accept-Language: en-US,en;q=0.8
+4 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+4 > Connection: keep-alive
+4 > Cache-Control: no-cache
+4 > Accept-Encoding: gzip,deflate,sdch
+4 > 
+
+INFO  [2014-03-19 22:45:35,988] com.sun.jersey.api.container.filter.LoggingFilter: 4 * Server out-bound response
+4 < 200
+4 < Content-Type: application/json
+4 < 
+{"Links":[{"rel":"view-poll","href":"/polls/1001","method":"GET"},{"rel":"view-poll","href":"/polls/1000","method":"GET"}],"Questions":{"1":"What is your favorite drink?","2":"What is your favorite color?"}}
+
+INFO  [2014-03-19 22:45:47,942] com.sun.jersey.api.container.filter.LoggingFilter: 5 * Server in-bound request
+5 > GET http://localhost:8080/sms-voting/v1/user/polls/1000
+5 > Host: localhost:8080
+5 > Accept: */*
+5 > Postman-Token: 531869a0-7ccb-b35e-2b69-c3ccd066773d
+5 > Content-Type: application/json
+5 > Accept-Language: en-US,en;q=0.8
+5 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+5 > Connection: keep-alive
+5 > Cache-Control: no-cache
+5 > Accept-Encoding: gzip,deflate,sdch
+5 > 
+
+INFO  [2014-03-19 22:45:47,962] com.sun.jersey.api.container.filter.LoggingFilter: 5 * Server out-bound response
+5 < 200
+5 < Content-Type: application/json
+5 < 
+{"Poll":{"id":1000,"question":"What is your favorite drink?","choices":[{"option":"Water","count":0},{"option":"Juice","count":0}]}}
+
+INFO  [2014-03-20 01:39:08,947] com.sun.jersey.api.container.filter.LoggingFilter: 6 * Server in-bound request
+6 > GET http://localhost:8080/sms-voting/v1/admin/polls
+6 > Host: localhost:8080
+6 > Accept: */*
+6 > Postman-Token: b70e6944-f1ce-de67-1972-80354e2d3dcc
+6 > Content-Type: application/json
+6 > Accept-Language: en-US,en;q=0.8
+6 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+6 > Connection: keep-alive
+6 > Cache-Control: no-cache
+6 > Accept-Encoding: gzip,deflate,sdch
+6 > 
+
+INFO  [2014-03-20 01:39:08,949] com.sun.jersey.api.container.filter.LoggingFilter: 6 * Server out-bound response
+6 < 200
+6 < Content-Type: application/json
+6 < 
+{"Links":[{"rel":"view-poll","href":"/polls/1001","method":"GET"},{"rel":"view-poll","href":"/polls/1000","method":"GET"}],"Questions":{"1":"What is your favorite drink?","2":"What is your favorite color?"}}
+
+INFO  [2014-03-20 01:39:19,407] com.sun.jersey.api.container.filter.LoggingFilter: 7 * Server in-bound request
+7 > GET http://localhost:8080/sms-voting/v1/user/polls/1000
+7 > Host: localhost:8080
+7 > Accept: */*
+7 > Postman-Token: 72df937b-1ea2-b281-726b-395007370cd2
+7 > Content-Type: application/json
+7 > Accept-Language: en-US,en;q=0.8
+7 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+7 > Connection: keep-alive
+7 > Cache-Control: no-cache
+7 > Accept-Encoding: gzip,deflate,sdch
+7 > 
+
+INFO  [2014-03-20 01:39:19,408] com.sun.jersey.api.container.filter.LoggingFilter: 7 * Server out-bound response
+7 < 200
+7 < Content-Type: application/json
+7 < 
+{"Poll":{"id":1000,"question":"What is your favorite drink?","choices":[{"option":"Water","count":0},{"option":"Juice","count":0}]}}
+
+INFO  [2014-03-20 01:40:44,983] com.sun.jersey.api.container.filter.LoggingFilter: 8 * Server in-bound request
+8 > GET http://localhost:8080/sms-voting/v1/user/polls/1000
+8 > Host: localhost:8080
+8 > Accept: */*
+8 > Postman-Token: 48ab11c8-490b-bf20-5f7d-0ea7f8e7649c
+8 > Content-Type: application/json
+8 > Accept-Language: en-US,en;q=0.8
+8 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+8 > Connection: keep-alive
+8 > Cache-Control: no-cache
+8 > Accept-Encoding: gzip,deflate,sdch
+8 > 
+
+INFO  [2014-03-20 01:40:44,984] com.sun.jersey.api.container.filter.LoggingFilter: 8 * Server out-bound response
+8 < 200
+8 < Content-Type: application/json
+8 < 
+{"Poll":{"id":1000,"question":"What is your favorite drink?","choices":[{"option":"Water","count":0},{"option":"Juice","count":0}]}}
+
+INFO  [2014-03-20 01:40:56,963] com.sun.jersey.api.container.filter.LoggingFilter: 9 * Server in-bound request
+9 > PUT http://localhost:8080/sms-voting/v1/user/polls/1000?option=Water
+9 > Host: localhost:8080
+9 > Accept: */*
+9 > Postman-Token: 8de96cca-661b-4b90-ae08-3e19a6ff10ef
+9 > Content-Length: 0
+9 > Content-Type: application/json
+9 > Accept-Language: en-US,en;q=0.8
+9 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+9 > Connection: keep-alive
+9 > Cache-Control: no-cache
+9 > Accept-Encoding: gzip,deflate,sdch
+9 > Origin: chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop
+9 > 
+
+INFO  [2014-03-20 01:40:56,965] com.sun.jersey.api.container.filter.LoggingFilter: 9 * Server out-bound response
+9 < 200
+9 < Content-Type: application/json
+9 < 
+{"Poll":{"id":1000,"question":"What is your favorite drink?","choices":[{"option":"Water","count":1},{"option":"Juice","count":0}]}}
+
+INFO  [2014-03-20 01:41:34,089] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8081
+INFO  [2014-03-20 01:41:34,091] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-03-20 01:41:34,091] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-03-20 01:41:34,091] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/minu/Documents/workspace-sts-3.4.0.RELEASE/sms-voting-service/target/classes/}
+INFO  [2014-03-20 01:41:36,145] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/minu/Documents/workspace-sts-3.4.0.RELEASE/sms-voting-service/target/classes/}
+INFO  [2014-03-20 01:41:36,145] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+WARN  [2014-03-20 01:41:38,493] com.yammer.dropwizard.config.ServerFactory: 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS SERVICE HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW IF IT    !
+!    DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE LETTING     !
+!     YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH DEPENDENCY OF     !
+!     YOUR SERVICE WHICH FULLY (BUT LIGHTLY) TESTS YOUR SERVICE'S ABILITY TO   !
+!      USE THAT SERVICE. THINK OF IT AS A CONTINUOUS INTEGRATION TEST.         !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO  [2014-03-20 01:41:38,586] com.yammer.dropwizard.cli.ServerCommand: Starting sms-voting-service
+INFO  [2014-03-20 01:41:38,588] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-03-20 01:41:38,712] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-03-20 01:41:38,787] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    DELETE  /sms-voting/v1/admin/polls/{id} (edu.sjsu.cmpe.voting.resources.ModeratorPollResource)
+    GET     /sms-voting/v1/admin/polls (edu.sjsu.cmpe.voting.resources.ModeratorPollResource)
+    GET     /sms-voting/v1/admin/polls/{id} (edu.sjsu.cmpe.voting.resources.ModeratorPollResource)
+    POST    /sms-voting/v1/admin/polls (edu.sjsu.cmpe.voting.resources.ModeratorPollResource)
+    GET     /sms-voting/v1/user/polls (edu.sjsu.cmpe.voting.resources.UserPollResource)
+    GET     /sms-voting/v1/user/polls/{id} (edu.sjsu.cmpe.voting.resources.UserPollResource)
+    PUT     /sms-voting/v1/user/polls/{id} (edu.sjsu.cmpe.voting.resources.UserPollResource)
+
+INFO  [2014-03-20 01:41:38,787] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-03-20 01:41:39,150] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-03-20 01:41:39,155] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+INFO  [2014-03-20 02:43:14,948] com.sun.jersey.api.container.filter.LoggingFilter: 1 * Server in-bound request
+1 > POST http://localhost:8080/sms-voting/v1/admin/polls
+1 > Host: localhost:8080
+1 > Accept: */*
+1 > Postman-Token: 9ae009cb-2e1a-b095-484f-802b91746cb0
+1 > Content-Length: 129
+1 > Content-Type: application/json
+1 > Accept-Language: en-US,en;q=0.8
+1 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+1 > Connection: keep-alive
+1 > Cache-Control: no-cache
+1 > Accept-Encoding: gzip,deflate,sdch
+1 > Origin: chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop
+1 > 
+{
+ "question" : "What is your favorite drink?",
+ "choices" : [
+         { "option" : "Water" },
+         {"option" : "Juice"} ]
+}
+
+INFO  [2014-03-20 02:43:15,031] com.sun.jersey.api.container.filter.LoggingFilter: 1 * Server out-bound response
+1 < 200
+1 < Content-Type: application/json
+1 < 
+{"polls":[{"rel":"view-all-polls","href":"/polls","method":"GET"},{"rel":"view-poll","href":"/polls/1000","method":"GET"}]}
+
+INFO  [2014-03-20 02:44:01,708] com.sun.jersey.api.container.filter.LoggingFilter: 2 * Server in-bound request
+2 > POST http://localhost:8080/sms-voting/v1/admin/polls
+2 > Host: localhost:8080
+2 > Accept: */*
+2 > Postman-Token: d5f661ad-3935-7b51-40a4-1c860accb340
+2 > Content-Length: 127
+2 > Content-Type: application/json
+2 > Accept-Language: en-US,en;q=0.8
+2 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+2 > Connection: keep-alive
+2 > Cache-Control: no-cache
+2 > Accept-Encoding: gzip,deflate,sdch
+2 > Origin: chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop
+2 > 
+{
+ "question" : "What is your favorite color?",
+ "choices" : [
+         { "option" : "Red" },
+         {"option" : "Green"} ]
+}
+
+INFO  [2014-03-20 02:44:01,709] com.sun.jersey.api.container.filter.LoggingFilter: 2 * Server out-bound response
+2 < 200
+2 < Content-Type: application/json
+2 < 
+{"polls":[{"rel":"view-all-polls","href":"/polls","method":"GET"},{"rel":"view-poll","href":"/polls/1001","method":"GET"}]}
+
+INFO  [2014-03-20 02:44:35,506] com.sun.jersey.api.container.filter.LoggingFilter: 3 * Server in-bound request
+3 > GET http://localhost:8080/sms-voting/v1/admin/polls
+3 > Host: localhost:8080
+3 > Accept: */*
+3 > Postman-Token: 70cc85f0-6f63-cedb-3d09-d9166c5a40a1
+3 > Content-Type: application/json
+3 > Accept-Language: en-US,en;q=0.8
+3 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+3 > Connection: keep-alive
+3 > Cache-Control: no-cache
+3 > Accept-Encoding: gzip,deflate,sdch
+3 > 
+
+INFO  [2014-03-20 02:44:35,509] com.sun.jersey.api.container.filter.LoggingFilter: 3 * Server out-bound response
+3 < 200
+3 < Content-Type: application/json
+3 < 
+{"Links":[{"rel":"view-poll","href":"/polls/1001","method":"GET"},{"rel":"view-poll","href":"/polls/1000","method":"GET"}],"Questions":{"1":"What is your favorite drink?","2":"What is your favorite color?"}}
+
+INFO  [2014-03-20 02:44:48,962] com.sun.jersey.api.container.filter.LoggingFilter: 4 * Server in-bound request
+4 > GET http://localhost:8080/sms-voting/v1/user/polls
+4 > Host: localhost:8080
+4 > Accept: */*
+4 > Postman-Token: f1e27489-6a5a-6298-a13f-ad5c60d1d687
+4 > Content-Type: application/json
+4 > Accept-Language: en-US,en;q=0.8
+4 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+4 > Connection: keep-alive
+4 > Cache-Control: no-cache
+4 > Accept-Encoding: gzip,deflate,sdch
+4 > 
+
+INFO  [2014-03-20 02:44:48,963] com.sun.jersey.api.container.filter.LoggingFilter: 4 * Server out-bound response
+4 < 200
+4 < Content-Type: application/json
+4 < 
+{"Links":[{"rel":"view-poll","href":"/polls/1001","method":"GET"},{"rel":"view-poll","href":"/polls/1000","method":"GET"}],"Questions":{"1":"What is your favorite drink?","2":"What is your favorite color?"}}
+
+INFO  [2014-03-20 02:45:03,683] com.sun.jersey.api.container.filter.LoggingFilter: 5 * Server in-bound request
+5 > GET http://localhost:8080/sms-voting/v1/user/polls/1000
+5 > Host: localhost:8080
+5 > Accept: */*
+5 > Postman-Token: 512bd16f-3ab0-4715-d252-82e3c7a71bc5
+5 > Content-Type: application/json
+5 > Accept-Language: en-US,en;q=0.8
+5 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+5 > Connection: keep-alive
+5 > Cache-Control: no-cache
+5 > Accept-Encoding: gzip,deflate,sdch
+5 > 
+
+INFO  [2014-03-20 02:45:03,699] com.sun.jersey.api.container.filter.LoggingFilter: 5 * Server out-bound response
+5 < 200
+5 < Content-Type: application/json
+5 < 
+{"Poll":{"id":1000,"question":"What is your favorite drink?","choices":[{"option":"Water","count":0},{"option":"Juice","count":0}]}}
+
+INFO  [2014-03-20 02:45:26,777] com.sun.jersey.api.container.filter.LoggingFilter: 6 * Server in-bound request
+6 > PUT http://localhost:8080/sms-voting/v1/user/polls/1000?option=Water
+6 > Host: localhost:8080
+6 > Accept: */*
+6 > Postman-Token: 02a8a14b-eb28-5f20-2cb1-209746adcba3
+6 > Content-Length: 0
+6 > Content-Type: application/json
+6 > Accept-Language: en-US,en;q=0.8
+6 > User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36
+6 > Connection: keep-alive
+6 > Cache-Control: no-cache
+6 > Accept-Encoding: gzip,deflate,sdch
+6 > Origin: chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop
+6 > 
+
+INFO  [2014-03-20 02:45:26,782] com.sun.jersey.api.container.filter.LoggingFilter: 6 * Server out-bound response
+6 < 200
+6 < Content-Type: application/json
+6 < 
+{"Poll":{"id":1000,"question":"What is your favorite drink?","choices":[{"option":"Water","count":1},{"option":"Juice","count":0}]}}
+
