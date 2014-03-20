@@ -39,7 +39,7 @@ public class UserPollResource {
 	/**
 	 * 1. Get the Polls
 	 * 		Resource : GET - /polls/id
-	 * 		Description : get an existing Poll from the repository
+	 * 		Description : get an existing Poll from the repository 
 	 * 
 	 */
 	@GET
@@ -66,7 +66,7 @@ public class UserPollResource {
 	/**
 	 * 2. Get the Poll by Id
 	 * 		Resource : GET - /polls/id
-	 * 		Description : get an existing Poll from the repository
+	 * 		Description : get an existing Poll from the repository with given poll id
 	 * 
 	 */
 	@GET
@@ -83,7 +83,7 @@ public class UserPollResource {
 	}
 	
 	/**
-	 * 3. choose an option
+	 * 3.user choose an option
 	 *  Resource : PUT - /polls/{id}/?option={option}
 	 */
 	@PUT
