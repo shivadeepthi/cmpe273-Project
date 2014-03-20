@@ -16,7 +16,6 @@ import javax.ws.rs.core.MediaType;
 import com.yammer.dropwizard.jersey.params.LongParam;
 import com.yammer.metrics.annotation.Timed;
 
-//import edu.sjsu.cmpe.voting.api.Choice;
 import edu.sjsu.cmpe.voting.api.Poll;
 import edu.sjsu.cmpe.voting.dto.PollDto;
 import edu.sjsu.cmpe.voting.repository.PollsRepositoryInterface;
@@ -85,7 +84,7 @@ public class UserPollResource {
 	
 	/**
 	 * 3. choose an option
-	 * 		Resource : PUT - /polls/{id}/?option={option}
+	 *  Resource : PUT - /polls/{id}/?option={option}
 	 */
 	@PUT
 	@Timed(name="participate-poll")
