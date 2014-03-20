@@ -32,7 +32,7 @@ public class UserPollResource {
 	 * @param pollsRepository
 	 */
 	public UserPollResource(PollsRepositoryInterface pollsRepository) {
-		//super();
+		
 		this.pollsRepository = pollsRepository;
 	}
 	
