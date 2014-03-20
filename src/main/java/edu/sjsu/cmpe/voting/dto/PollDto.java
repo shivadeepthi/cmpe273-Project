@@ -1,7 +1,7 @@
 package edu.sjsu.cmpe.voting.dto;
 
 public class PollDto {
-	private String rel = "self"; // default is 'self'
+    private String rel = "self"; 
     private String href = "#"; // default is '#'
     private String method = "GET"; // default is 'GET'
 
