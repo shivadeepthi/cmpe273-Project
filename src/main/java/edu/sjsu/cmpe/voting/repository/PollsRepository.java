@@ -42,9 +42,6 @@ public class PollsRepository implements PollsRepositoryInterface {
 		return UUID.randomUUID().toString().substring(0, 4);
 	}
 
-	/* (non-Javadoc)
-	 * @see edu.sjsu.cmpe.voting.repository.PollsRepositoryInterface#savePoll(edu.sjsu.cmpe.voting.Poll)
-	 */
 	@Override
 	public Poll savePoll(Poll newPoll) throws Exception {
 		checkNotNull(newPoll,"newPoll must not be null to add to PollRepository");
@@ -53,16 +50,24 @@ public class PollsRepository implements PollsRepositoryInterface {
 		String key = createID();
 		newPoll.setId(key);
 		System.out.println("(from the repository) Question is : " + newPoll.getQuestion());
+<<<<<<< HEAD
+=======
+		
+>>>>>>> aed72de9701dfb1d36ac4ed0372e299582b794b7
 			Iterator<Choice> it = newPoll.getChoices().iterator();
 			while(it.hasNext())
 			{
 				it.next().setId();
 			}
+<<<<<<< HEAD
+=======
+			
+		//add the entry to the hashmap
+>>>>>>> aed72de9701dfb1d36ac4ed0372e299582b794b7
 		pollInMemoryMap.putIfAbsent(key, newPoll);
 		}
 		catch (Exception e)
-		{
-			e.printStackTrace();
+		{			e.printStackTrace();
 		}
 		return newPoll;
 	}
