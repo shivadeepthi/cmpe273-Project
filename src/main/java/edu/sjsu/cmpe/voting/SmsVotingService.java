@@ -39,7 +39,7 @@ public class SmsVotingService extends Service<SmsVotingServiceConfiguration>{
     	
     	/** Sms-Voting Moderator APIs */
     	PollsRepositoryInterface pollsRepository = new PollsRepository(
-    		new ConcurrentHashMap<Long, Poll>());
+    		new ConcurrentHashMap<String, Poll>());
     	environment.addResource(new ModeratorPollResource(pollsRepository));
     	
     	/** Sms-Voting User APIs */

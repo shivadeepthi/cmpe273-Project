@@ -3,11 +3,14 @@ package edu.sjsu.cmpe.voting.repository;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.io.IOException;
+import java.math.BigInteger;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -16,16 +19,14 @@ import edu.sjsu.cmpe.voting.api.Poll;
 import edu.sjsu.cmpe.voting.utils.SmsVotingUtils;
 
 public class PollsRepository implements PollsRepositoryInterface {
-	/** Never access this key directly; instead use generateKey() */
-	private static AtomicLong idCounter = new AtomicLong(1000);
 	
 	/** In-memory map to store polls. (Key, Value) -> (ID, Poll) */
-	private final ConcurrentHashMap<Long, Poll> pollInMemoryMap;
+	private final ConcurrentHashMap<String, Poll> pollInMemoryMap;
 	
 	/**
 	 * @param pollInMemoryMap
 	 */
-	public PollsRepository(ConcurrentHashMap<Long, Poll> pollMap) {
+	public PollsRepository(ConcurrentHashMap<String, Poll> pollMap) {
 		checkNotNull(pollMap, "pollMap must not be null for PollRepository");
 		this.pollInMemoryMap = pollMap;
 	}
@@ -36,9 +37,9 @@ public class PollsRepository implements PollsRepositoryInterface {
      * 
      * @return a new incremental key value
      */
-	public static long createID()
+	public static String createID()
 	{
-	    return (idCounter.getAndIncrement());
+		return UUID.randomUUID().toString().substring(0, 4);
 	}
 
 	/* (non-Javadoc)
@@ -49,24 +50,14 @@ public class PollsRepository implements PollsRepositoryInterface {
 		checkNotNull(newPoll,"newPoll must not be null to add to PollRepository");
 		try {
 		//Generate New Unique id for the Poll
-		long key = createID();
+		String key = createID();
 		newPoll.setId(key);
 		System.out.println("(from the repository) Question is : " + newPoll.getQuestion());
-//		for(int i = 0 ;i < newPoll.getChoices().size() ; i++)
-//		{
-		
 			Iterator<Choice> it = newPoll.getChoices().iterator();
 			while(it.hasNext())
 			{
 				it.next().setId();
 			}
-			
-//			//System.out.println("Option "+ i + " : " +newPoll.getChoices().get(i).getOption());		
-//			newPoll.getChoices().get(i).setId();
-//			newPoll.getChoices().
-//			//System.out.println("Option ID "+ i+1 + " : " +newPoll.getChoices().get(i).getId());
-//		}
-		//add the entry to the hashmap
 		pollInMemoryMap.putIfAbsent(key, newPoll);
 		}
 		catch (Exception e)
@@ -81,10 +72,10 @@ public class PollsRepository implements PollsRepositoryInterface {
 	{
 		HashMap map = new HashMap<Long, Object>();
 		try { 
-		Iterator<Long> it = pollInMemoryMap.keySet().iterator();
+			Iterator<String> it = pollInMemoryMap.keySet().iterator();
 		while(it.hasNext())
 		{
-			long key = it.next();
+			String key = it.next();
 			map.put(key+1, pollInMemoryMap.get(key).getQuestion());
 			System.out.println("question in hash repository is : "+pollInMemoryMap.get(key).getQuestion());
 		}
@@ -103,12 +94,11 @@ public class PollsRepository implements PollsRepositoryInterface {
 	public List<Poll> getPolls()
 	{
 		List<Poll> polls = new ArrayList<Poll>();
-		Iterator<Long> it = pollInMemoryMap.keySet().iterator();
+		Iterator<String> it = pollInMemoryMap.keySet().iterator();
 		while(it.hasNext())
 		{
-			long key = it.next();
+			String key = it.next();
 			polls.add(pollInMemoryMap.get(key));
-			//map.put(key+1, pollInMemoryMap.get(key).getQuestion());
 			System.out.println("question in hash repository is : "+pollInMemoryMap.get(key));
 		}
 		return polls;
@@ -121,7 +111,6 @@ public class PollsRepository implements PollsRepositoryInterface {
 	public void removePoll(Long id) {
 		if(!pollInMemoryMap.isEmpty())
 			pollInMemoryMap.remove(id);
-		System.out.println("book with ISBN "+ id + " has been removed");
 	}
 
 	/* (non-Javadoc)

@@ -57,7 +57,6 @@ public class ModeratorPollResource {
 		try {
 		Poll poll = pollsRepository.savePoll(request);
 		System.out.println("Poll is : "+poll.getQuestion() + " : Option is :"+poll.getChoices());
-		//myMap = pollsRepository.iterateHashMap();
 		List<PollDto> pollLink = new ArrayList<PollDto>();
 		pollLink.add(new PollDto("view-all-polls", "/polls" , "GET"));
 		pollLink.add(new PollDto("view-poll", "/polls/" + poll.getId() , "GET"));
@@ -82,8 +81,6 @@ public class ModeratorPollResource {
 		Poll pollById = pollsRepository.getPollById(id.get());
 		HashMap<String, Object> myMap = new HashMap<String, Object>();
 		myMap.put("Poll", pollById);
-		
-		//ResponseEntity<Map<String, Object>>(myMap, HttpStatus.CREATED);
 		return myMap;
 	}
 	
@@ -99,19 +96,17 @@ public class ModeratorPollResource {
 	{
 		List<Poll> allPolls = new ArrayList<Poll>();
 		allPolls = pollsRepository.getPolls();
-		HashMap<Long, Object> pollsMap = new HashMap<Long, Object>();
-		//pollsMap.put("Questions", allPolls);
+		HashMap<String, Object> pollsMap = new HashMap<String, Object>();
 		List<PollDto> pollLinks = new ArrayList<PollDto>();
 		for(Poll p : allPolls)
 		{
-			pollsMap.put(p.getId()-999, p.getQuestion());
+			pollsMap.put(p.getId(), p.getQuestion());
 			pollLinks.add(new PollDto("view-poll", "/polls/"+p.getId(), "GET"));
 		}
 		HashMap<String, Object> responseMap = new HashMap<String, Object>();
 		responseMap.put("Questions", pollsMap);
 		responseMap.put("Links", pollLinks);
 		return responseMap;
-		//return Response.status(201).entity(<Map<String, Object>>(responseMap)).;
 	}
 	
 	/**
