@@ -13,7 +13,6 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
-
 import edu.sjsu.cmpe.voting.api.Choice;
 import edu.sjsu.cmpe.voting.api.Poll;
 import edu.sjsu.cmpe.voting.utils.SmsVotingUtils;
@@ -44,7 +43,7 @@ public class PollsRepository implements PollsRepositoryInterface {
 
 	@Override
 	public Poll savePoll(Poll newPoll) throws Exception {
-		checkNotNull(newPoll,"newPoll must not be null to add to PollRepository");
+		checkNotNull(newPoll,"newPoll cannot be null to add to PollRepository");
 		try {
 		//Generate New Unique id for the Poll
 		String key = createID();
@@ -143,7 +142,4 @@ public class PollsRepository implements PollsRepositoryInterface {
 			}
 		}
 	}
-	
-	
-
-}
+	}
