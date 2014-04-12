@@ -5,8 +5,10 @@ import java.util.concurrent.ConcurrentHashMap;
 import com.sun.jersey.api.container.filter.LoggingFilter;
 import com.sun.jersey.api.core.ResourceConfig;
 import com.yammer.dropwizard.Service;
+import com.yammer.dropwizard.assets.AssetsBundle;
 import com.yammer.dropwizard.config.Bootstrap;
 import com.yammer.dropwizard.config.Environment;
+import com.yammer.dropwizard.views.ViewBundle;
 
 import edu.sjsu.cmpe.voting.SmsVotingServiceConfiguration;
 import edu.sjsu.cmpe.voting.api.Poll;
@@ -14,6 +16,7 @@ import edu.sjsu.cmpe.voting.repository.PollsRepository;
 import edu.sjsu.cmpe.voting.repository.PollsRepositoryInterface;
 import edu.sjsu.cmpe.voting.resources.ModeratorPollResource;
 import edu.sjsu.cmpe.voting.resources.UserPollResource;
+import edu.sjsu.cmpe.voting.ui.resources.UserResource;
 
 public class SmsVotingService extends Service<SmsVotingServiceConfiguration>{
 	
@@ -26,6 +29,8 @@ public class SmsVotingService extends Service<SmsVotingServiceConfiguration>{
 	public void initialize(Bootstrap<SmsVotingServiceConfiguration> bootstrap)
 	{
 		bootstrap.setName("sms-voting-service");
+		bootstrap.addBundle(new ViewBundle());
+		bootstrap.addBundle(new AssetsBundle());
 	}
 	
 	@Override
@@ -44,5 +49,8 @@ public class SmsVotingService extends Service<SmsVotingServiceConfiguration>{
     	
     	/** Sms-Voting User APIs */
     	environment.addResource(new UserPollResource(pollsRepository));
+    	
+    	/** Sms-Voting User UI */
+    	environment.addResource(new UserResource(pollsRepository));
 	}
 }

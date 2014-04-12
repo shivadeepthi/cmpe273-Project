@@ -16,6 +16,7 @@ import javax.ws.rs.core.MediaType;
 import com.yammer.dropwizard.jersey.params.LongParam;
 import com.yammer.metrics.annotation.Timed;
 
+//import edu.sjsu.cmpe.voting.api.Choice;
 import edu.sjsu.cmpe.voting.api.Poll;
 import edu.sjsu.cmpe.voting.dto.PollDto;
 import edu.sjsu.cmpe.voting.repository.PollsRepositoryInterface;
@@ -32,17 +33,13 @@ public class UserPollResource {
 	 * @param pollsRepository
 	 */
 	public UserPollResource(PollsRepositoryInterface pollsRepository) {
-<<<<<<< HEAD
-=======
-		
->>>>>>> aed72de9701dfb1d36ac4ed0372e299582b794b7
 		this.pollsRepository = pollsRepository;
 	}
 	
 	/**
 	 * 1. Get the Polls
 	 * 		Resource : GET - /polls/id
-	 * 		Description : get an existing Poll from the repository 
+	 * 		Description : get an existing Poll from the repository
 	 * 
 	 */
 	@GET
@@ -67,32 +64,32 @@ public class UserPollResource {
 	/**
 	 * 2. Get the Poll by Id
 	 * 		Resource : GET - /polls/id
-	 * 		Description : get an existing Poll from the repository with given poll id
+	 * 		Description : get an existing Poll from the repository
 	 * 
 	 */
 	@GET
 	@Timed(name="view-poll")
 	@Path("/{id}")
-	public HashMap<String, Object> viewPollById(@PathParam("id") LongParam id) 
+	public HashMap<String, Object> viewPollById(@PathParam("id") String id) 
 	{
-		Poll pollById = pollsRepository.getPollById(id.get());
+		Poll pollById = pollsRepository.getPollById(id);
 		HashMap<String, Object> myMap = new HashMap<String, Object>();
 		myMap.put("Poll", pollById);
 		return myMap;
 	}
 	
 	/**
-	 * 3.user choose an option
-	 *  Resource : PUT - /polls/{id}/?option={option}
+	 * 3. choose an option
+	 * 		Resource : PUT - /polls/{id}/?option={option}
 	 */
 	@PUT
 	@Timed(name="participate-poll")
 	@Path("/{id}")
-	public HashMap<String, Object> participatePoll(@PathParam("id") LongParam id, 
+	public HashMap<String, Object> participatePoll(@PathParam("id") String id, 
 							@QueryParam("option") String option)
 	{
-		pollsRepository.setCountForOption(id.get(), option);
-		Poll pollById = pollsRepository.getPollById(id.get());
+		pollsRepository.setCountForOption(id, option);
+		Poll pollById = pollsRepository.getPollById(id);
 		HashMap<String, Object> myMap = new HashMap<String, Object>();
 		myMap.put("Poll", pollById);
 		return myMap;

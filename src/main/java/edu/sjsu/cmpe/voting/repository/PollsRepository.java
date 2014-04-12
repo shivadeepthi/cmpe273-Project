@@ -13,6 +13,7 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
+
 import edu.sjsu.cmpe.voting.api.Choice;
 import edu.sjsu.cmpe.voting.api.Poll;
 import edu.sjsu.cmpe.voting.utils.SmsVotingUtils;
@@ -41,32 +42,27 @@ public class PollsRepository implements PollsRepositoryInterface {
 		return UUID.randomUUID().toString().substring(0, 4);
 	}
 
+	/* (non-Javadoc)
+	 * @see edu.sjsu.cmpe.voting.repository.PollsRepositoryInterface#savePoll(edu.sjsu.cmpe.voting.Poll)
+	 */
 	@Override
 	public Poll savePoll(Poll newPoll) throws Exception {
-		checkNotNull(newPoll,"newPoll cannot be null to add to PollRepository");
+		checkNotNull(newPoll,"newPoll must not be null to add to PollRepository");
 		try {
 		//Generate New Unique id for the Poll
 		String key = createID();
 		newPoll.setId(key);
 		System.out.println("(from the repository) Question is : " + newPoll.getQuestion());
-<<<<<<< HEAD
-=======
-		
->>>>>>> aed72de9701dfb1d36ac4ed0372e299582b794b7
-			Iterator<Choice> it = newPoll.getChoices().iterator();
-			while(it.hasNext())
-			{
-				it.next().setId();
-			}
-<<<<<<< HEAD
-=======
-			
-		//add the entry to the hashmap
->>>>>>> aed72de9701dfb1d36ac4ed0372e299582b794b7
+//			Iterator<Choice> it = newPoll.getChoices().iterator();
+//			while(it.hasNext())
+//			{
+//				it.next().setId();
+//			}
 		pollInMemoryMap.putIfAbsent(key, newPoll);
 		}
 		catch (Exception e)
-		{			e.printStackTrace();
+		{
+			e.printStackTrace();
 		}
 		return newPoll;
 	}
@@ -112,7 +108,7 @@ public class PollsRepository implements PollsRepositoryInterface {
 	 * @see edu.sjsu.cmpe.voting.repository.PollsRepositoryInterface#removePoll(java.lang.Long)
 	 */
 	@Override
-	public void removePoll(Long id) {
+	public void removePoll(String id) {
 		if(!pollInMemoryMap.isEmpty())
 			pollInMemoryMap.remove(id);
 	}
@@ -121,7 +117,7 @@ public class PollsRepository implements PollsRepositoryInterface {
 	 * @see edu.sjsu.cmpe.voting.repository.PollsRepositoryInterface#getPollById(java.lang.Long)
 	 */
 	@Override
-	public Poll getPollById(Long id) {
+	public Poll getPollById(String id) {
 		Poll pollById = pollInMemoryMap.get(id);
 		return pollById;
 	}
@@ -130,7 +126,7 @@ public class PollsRepository implements PollsRepositoryInterface {
 	 * @see edu.sjsu.cmpe.voting.repository.PollsRepositoryInterface#setCountForOption(java.lang.Long, java.lang.String)
 	 */
 	@Override
-	public void setCountForOption(Long id, String option) {
+	public void setCountForOption(String id, String option) {
 		Poll pollById = getPollById(id);
 		for(Choice c : pollById.getChoices())
 		{
@@ -142,4 +138,7 @@ public class PollsRepository implements PollsRepositoryInterface {
 			}
 		}
 	}
-	}
+	
+	
+
+}

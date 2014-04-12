@@ -76,9 +76,9 @@ public class ModeratorPollResource {
 	@GET
 	@Timed(name="view-poll")
 	@Path("/{id}")
-	public HashMap<String, Object> viewPollById(@PathParam("id") LongParam id) 
+	public HashMap<String, Object> viewPollById(@PathParam("id") String id) 
 	{
-		Poll pollById = pollsRepository.getPollById(id.get());
+		Poll pollById = pollsRepository.getPollById(id);
 		HashMap<String, Object> myMap = new HashMap<String, Object>();
 		myMap.put("Poll", pollById);
 		return myMap;
@@ -118,10 +118,10 @@ public class ModeratorPollResource {
 	@DELETE
     @Path("/{id}")
     @Timed(name = "delete-poll")
-    public Response deletePollById(@PathParam("id") LongParam id)
+    public Response deletePollById(@PathParam("id") String id)
     {
     	try {
-    		pollsRepository.removePoll(id.get());
+    		pollsRepository.removePoll(id);
 	    	PollsDto links = new PollsDto();
 	    	links.addLink(new PollDto("create-poll", "/polls", "POST"));
 	    	return Response.ok(links).build();

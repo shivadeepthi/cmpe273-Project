@@ -4,7 +4,6 @@
 package edu.sjsu.cmpe.voting.repository;
 
 import java.util.HashMap;
-
 import java.util.List;
 
 import edu.sjsu.cmpe.voting.api.Poll;
@@ -38,7 +37,7 @@ public interface PollsRepositoryInterface {
 	 * 			id of the poll to be deleted
 	 * 
 	 */
-	void removePoll(Long id);
+	void removePoll(String id);
 	
 	/**
 	 * Get the poll in the repository based on the id
@@ -47,7 +46,7 @@ public interface PollsRepositoryInterface {
 	 * 			id of the poll to be deleted
 	 * @return a poll instance with auto-generated key
 	 */
-	Poll getPollById(Long id);
+	Poll getPollById(String id);
 	
 	/**
 	 * Get the list of polls in the repository 
@@ -64,5 +63,5 @@ public interface PollsRepositoryInterface {
 	 * @param option
 	 * 			option that the user has voted for
 	 */
-	void setCountForOption(Long id, String option);
+	void setCountForOption(String id, String option);
 }

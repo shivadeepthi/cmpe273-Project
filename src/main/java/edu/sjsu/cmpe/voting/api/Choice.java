@@ -11,27 +11,23 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import edu.sjsu.cmpe.voting.utils.SmsVotingUtils;
 
-public class Choice<T> {
-	
-//	@JsonProperty
-//	@JsonInclude(Include.NON_DEFAULT)
+public class Choice {
 	@JsonIgnore
-	private String id;
+	//private String id;
 	
 	@JsonProperty("option")
 	@NotNull
 	private String option;
 	
 	@JsonProperty("count")
-	//@JsonInclude(Include.NON_DEFAULT)
 	private long count;
 	
-	public String getId() {
-		return id;
-	}
-	public void setId() {
-		this.id = UUID.randomUUID().toString();
-	}
+//	public String getId() {
+//		return id;
+//	}
+//	public void setId() {
+//		this.id = UUID.randomUUID().toString();
+//	}
 	
 	public String getOption() {
 		return option;

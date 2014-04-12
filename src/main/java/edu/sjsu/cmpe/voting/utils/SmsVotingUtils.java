@@ -8,7 +8,6 @@ public class SmsVotingUtils {
 	public static long incrementCounter()
 	{
 		long count = atomicId.incrementAndGet();
-		System.out.println("###### SMS VOTING UTILS /counter value is : "+count);
 		return(count);
 	}
 }

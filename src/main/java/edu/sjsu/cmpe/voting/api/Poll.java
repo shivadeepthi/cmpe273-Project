@@ -16,33 +16,25 @@ import edu.sjsu.cmpe.voting.api.Choice;
 public class Poll {
 	@JsonProperty
 	@JsonInclude(Include.NON_DEFAULT)
-	private long id;
+	private String id;
 	
 	@JsonProperty("question")
 	private String question;
 	
-//	@Valid
-//	@JsonProperty
-//	private List<Choice> choices;
-	
 	@Valid
 	@JsonProperty
-	//@Unique
 	private Set<Choice> choices;
 	
-	@JsonIgnore
+	@JsonProperty
 	private Date start;
 	
-	@JsonIgnore
+	@JsonProperty
 	private Date end;	
 	
-	//private DateTime start = new DateTime(2004, 12, 25, 0, 0, 0, 0);
-	
-	
-	public long getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	/**
@@ -57,20 +49,7 @@ public class Poll {
 	public void setQuestion(String question) {
 		this.question = question;
 	}
-//	/**
-//	 * @return the choices
-//	 */
-//	public List<Choice> getChoices() {
-//		return choices;
-//	}
-//	/**
-//	 * @param choices the choices to set
-//	 */
-//	public void setChoices(List<Choice> choices) {
-//		this.choices = choices;
-//	}
-	
-	
+
 	public Set<Choice> getChoices() {
 		return choices;
 	}
@@ -78,7 +57,6 @@ public class Poll {
 		this.choices = choices;
 	}
 	
-	//=======================
 	public Date getStart() {
 		return start;
 	}
