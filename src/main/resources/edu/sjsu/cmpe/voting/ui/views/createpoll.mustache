@@ -30,7 +30,7 @@
   function GetDynamicTextBox(value){
 	  
 	    return '<input id="addtxt" name = "DynamicTextBox" type="text" value = "' + value + '" />' +
-	            '<input type="image" value="Remove" src="delete.png" onclick = "RemoveTextBox(this)" />'
+	            '<input type="image" value="Remove" src="../assets/delete.png" onclick = "RemoveTextBox(this)" />'
 	}
   function AddTextBox() {
 	    var div = document.createElement('DIV');
@@ -110,7 +110,7 @@
     </div>
     <div id="collapseOne" class="panel-collapse collapse">
       <div class="panel-body">
-      <input id="TxtbtnAdd" type="image" src="add.png" onclick="AddTextBox()"  />
+      <input id="TxtbtnAdd" type="image" src="../assets/add.png" onclick="AddTextBox()"  />
        
        <div id="TextBoxContainer">
     <!--Textboxes will be added here -->
@@ -129,7 +129,7 @@
       </div>
       <div id="collapseTwo" class="panel-collapse collapse">
          <div class="panel-body">
-            <input id="RadiobtnAdd" type="image" value="add" src="add.png" onclick="AddRadioBox()"  />
+            <input id="RadiobtnAdd" type="image" value="add" src="../assets/add.png" onclick="AddRadioBox()"  />
        
        <div id="RadioBoxContainer">
     <!--Textboxes will be added here -->
@@ -149,7 +149,7 @@
       <div id="collapseThree" class="panel-collapse collapse">
          <div class="panel-body">
             <p><input type="text" class="span3" placeholder="Type a Question">
-            <button><img alt="add" src="add.png"></button> </p>
+            <button><img alt="add" src="../assets/add.png"></button> </p>
          </div>
       </div>
    </div>
