@@ -51,20 +51,14 @@ public class ModeratorPollResource {
 	 */
 	@POST
 	@Timed(name= "create-poll")
-	public HashMap<String, Object> createNewPoll(@Valid Poll request) throws Exception
+	public Poll createNewPoll(@Valid Poll request) throws Exception
 	{
-		HashMap<String, Object> myMap = new HashMap<String, Object>();
-		try {
+		
+		System.out.println("hello");
 		Poll poll = pollsRepository.savePoll(request);
-		System.out.println("Poll is : "+poll.getQuestion() + " : Option is :"+poll.getChoices());
-		List<PollDto> pollLink = new ArrayList<PollDto>();
-		pollLink.add(new PollDto("view-all-polls", "/polls" , "GET"));
-		pollLink.add(new PollDto("view-poll", "/polls/" + poll.getId() , "GET"));
-		myMap.put("polls", pollLink);
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-		return myMap;
+		System.out.println(" i m here");
+		System.out.println("Poll is : "+poll.getQuestion() + " : choices are :"+poll.getChoices());
+		return poll;
 	}
 	
 	/**
@@ -97,16 +91,16 @@ public class ModeratorPollResource {
 		List<Poll> allPolls = new ArrayList<Poll>();
 		allPolls = pollsRepository.getPolls();
 		HashMap<String, Object> pollsMap = new HashMap<String, Object>();
-		List<PollDto> pollLinks = new ArrayList<PollDto>();
+		
 		for(Poll p : allPolls)
 		{
 			pollsMap.put(p.getId(), p.getQuestion());
-			pollLinks.add(new PollDto("view-poll", "/polls/"+p.getId(), "GET"));
+			
 		}
-		HashMap<String, Object> responseMap = new HashMap<String, Object>();
-		responseMap.put("Questions", pollsMap);
-		responseMap.put("Links", pollLinks);
-		return responseMap;
+		/*HashMap<String, Object> responseMap = new HashMap<String, Object>();
+		responseMap.put("Questions", pollsMap);*/
+		
+		return pollsMap;
 	}
 	
 	/**
@@ -122,9 +116,7 @@ public class ModeratorPollResource {
     {
     	try {
     		pollsRepository.removePoll(id);
-	    	PollsDto links = new PollsDto();
-	    	links.addLink(new PollDto("create-poll", "/polls", "POST"));
-	    	return Response.ok(links).build();
+	    	return Response.ok().build();
     	}
     	catch(WebApplicationException e) {
     		e.printStackTrace();

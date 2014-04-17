@@ -7,6 +7,9 @@
 
           <!-- Optional theme -->
           <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+          
+         
+        
         </head>
         <body>
             <div class="container">
@@ -14,16 +17,24 @@
                     <!-- calls getPolls() from HomeResource -->
                     <table id="poll" class="table table-hover">
                     {{#poll}}
-                        <tr>
+                    
+                      <tr>
 							<td>{{id}}</td>
 							<td>{{question}}</td>
-							<td>{{category}}</td>
-							<td>{{status}}</td>
-							<td><button id="{{isbn}}" type="button" class="btn btn-primary">Report Lost</button></td>
-                        </tr>
-                    {{/book}}
+							<td> <button  id="btnDel" type="button" class="btn btn-primary" style="width: 0.5px; height: 1px;" > - </button></td>
+                       </tr>
+                      
+                    {{/poll}}
+    
                     </table>
+                  
+                  <button id="btnAdd" type="button" class="btn btn-primary" onclick="DoNav()" >CreatePoll</button> 
+                   
+                 
+              
                 </div>
+                
+                
             </div> <!-- end of container -->
            
             <!-- script tags -->
@@ -32,6 +43,14 @@
             <!-- Latest compiled and minified JavaScript -->
 			<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 			<!-- application ui scripts -->
-			<script src="../assets/js/app.js"></script>
+			<script src="../assets/js/sms.js"></script>
+			
+			 <!-- Script for navigating from homepage to new page -->
+      <script type="text/javascript">
+          function DoNav()
+         {
+         document.location.href = "../assets/createpoll.html";
+         }
+         </script>
         </body>
 </html>

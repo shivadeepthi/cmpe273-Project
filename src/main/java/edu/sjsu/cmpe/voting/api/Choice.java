@@ -8,13 +8,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.mongodb.BasicDBObject;
+import com.mongodb.ReflectionDBObject;
 
 import edu.sjsu.cmpe.voting.utils.SmsVotingUtils;
 
-public class Choice {
+public  class Choice {
 	@JsonIgnore
 	//private String id;
 	
+
 	@JsonProperty("option")
 	@NotNull
 	private String option;

@@ -18,4 +18,5 @@ public class UserView extends View{
 	    public List<Poll> getPoll() {
 		return polls;
 	    }
+	  
 }

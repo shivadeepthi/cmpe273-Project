@@ -2,6 +2,8 @@ package edu.sjsu.cmpe.voting;
 
 import java.util.concurrent.ConcurrentHashMap;
 
+import com.mongodb.DB;
+import com.mongodb.MongoClient;
 import com.sun.jersey.api.container.filter.LoggingFilter;
 import com.sun.jersey.api.core.ResourceConfig;
 import com.yammer.dropwizard.Service;
@@ -22,6 +24,7 @@ public class SmsVotingService extends Service<SmsVotingServiceConfiguration>{
 	
 	public static void main(String Args[]) throws Exception
 	{
+		
 		new SmsVotingService().run(Args);
 	}
 	
@@ -43,8 +46,8 @@ public class SmsVotingService extends Service<SmsVotingServiceConfiguration>{
     			LoggingFilter.class.getName());
     	
     	/** Sms-Voting Moderator APIs */
-    	PollsRepositoryInterface pollsRepository = new PollsRepository(
-    		new ConcurrentHashMap<String, Poll>());
+    	PollsRepositoryInterface pollsRepository = new PollsRepository();
+    		
     	environment.addResource(new ModeratorPollResource(pollsRepository));
     	
     	/** Sms-Voting User APIs */
